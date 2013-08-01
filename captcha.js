@@ -35,7 +35,8 @@ module.exports = function(config, callback){
    
     if(config.fileMode){
     	var fs = require('fs');
-    	var out = fs.createWriteStream(config.saveDir  +"/"+ new Date().getTime() + Math.floor(Math.random()*1000) +'.png');
+    	var filename = new Date().getTime() + Math.floor(Math.random()*1000) +'.png';
+    	var out = fs.createWriteStream(config.saveDir  +"/"+ filename);
 		var stream = canvas.pngStream();
 
 		stream.on('data', function(chunk){
@@ -43,10 +44,12 @@ module.exports = function(config, callback){
 		});
 
 		stream.on('end', function(){
-		  console.log('saved png');
+		    callback(text, filename);
 		});
     }else{
-	    canvas.toDataURL('image/png', callback);
+	    canvas.toDataURL('image/png', function(err, data){
+            callback(text, data);
+	    });
     }
 
 };
