@@ -1,0 +1,27 @@
+{
+  "name": "node-captcha",
+  "version": "0.1.2",
+  "description": "",
+  "homepage": "http://github.com/zhiyu/node-captcha",
+  "keywords": [
+    "captcha"
+  ],
+  "author": {
+    "name": "zhiyu zheng",
+    "email": "zhengzhiyu@yeah.net",
+    "url": "http://github.com/zhiyu"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zhiyu/node-captcha.git"
+  },
+  "dependencies": {
+    "canvas":"1.0.4"
+  },
+  "main": "captcha.js",
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 0.5.0"
+  }
+}
