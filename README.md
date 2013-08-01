@@ -18,7 +18,7 @@ captcha(options,function(err, data){
 
 ##Options
 
-* `fileMode (default: false)` if true, image data will be stored as file
+* `fileMode` (default: false) if true, image data will be stored as file
 * `saveDir (default: '__dirname')` image file path
 * `size (default: 4)` the count of generated characters
 * `height (default: 24)` height of image
