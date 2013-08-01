@@ -1,4 +1,4 @@
-# Node Captcha
+## Node Captcha
 
 captcha generator for node.
 
@@ -9,7 +9,10 @@ captcha generator for node.
 ## Usage 
 
 ```javascript
-var captcha = require('noe-captcha');
+var captcha = require('node-captcha');
 
-console.log('Web server started.');
+captcha({},function(err, data){
+  res.end(data);
+});
+
 ```
