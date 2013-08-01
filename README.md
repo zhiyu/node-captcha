@@ -11,11 +11,22 @@ captcha generator for node.
 ```javascript
 var captcha = require('node-captcha');
 
-captcha({},function(err, data){
+captcha(options,function(err, data){
   res.end(data);
 });
-
 ```
+
+##Options
+
+    fileMode   default : false
+    size       default : 4
+    height     default : 24
+    width      default : height * size
+    color      default : 'rgb(0,0,0)'
+    background defalut : 'rgb(255,255,255)'
+    lineWidth  default : 2
+    saveDir    default : __dirname
+    
 
 ## LICENSE
 
