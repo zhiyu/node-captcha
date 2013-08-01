@@ -11,7 +11,7 @@ captcha generator for node.
 ```javascript
 var captcha = require('node-captcha');
 
-captcha(options,function(err, data){
+captcha(options,function(text, data){
   res.end(data);
 });
 ```
