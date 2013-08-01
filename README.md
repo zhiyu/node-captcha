@@ -18,15 +18,15 @@ captcha(options,function(err, data){
 
 ##Options
 
-    fileMode   default : false
-    size       default : 4
-    height     default : 24
-    width      default : height * size
-    color      default : 'rgb(0,0,0)'
-    background defalut : 'rgb(255,255,255)'
-    lineWidth  default : 2
-    saveDir    default : __dirname
-    
+* `fileMode (default: false)` if true, image data will be stored as file
+* `saveDir (default: '__dirname')` image file path
+* `size (default: 4)` the count of generated characters
+* `height (default: 24)` height of image
+* `width (default: height * size)` width of image
+* `color (default: 'rgb(0,0,0)')` text color
+* `background (default: 'rgb(255,255,255)')` background of image
+* `lineWidth (default: 2)` 
+
 
 ## LICENSE
 
