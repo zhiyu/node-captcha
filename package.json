@@ -17,7 +17,7 @@
     "url": "git://github.com/zhiyu/node-captcha.git"
   },
   "dependencies": {
-    "canvas":"1.1.2"
+    "canvas":"1.0.4"
   },
   "main": "captcha.js",
   "devDependencies": {},
