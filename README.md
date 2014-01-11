@@ -18,7 +18,7 @@ captcha(options,function(text, data){
 
 ##Options
 
-* `fileMode (default: false)` if true, image data will be stored as file
+* `fileMode (default: 0)` `0`: data url, `1`: path to new png data file, `2`: return raw png data buffer
 * `saveDir (default: '__dirname')` image file path
 * `size (default: 4)` the count of generated characters
 * `height (default: 24)` height of image
@@ -26,7 +26,9 @@ captcha(options,function(text, data){
 * `color (default: 'rgb(0,0,0)')` text color
 * `background (default: 'rgb(255,255,255)')` background of image
 * `lineWidth (default: 2)` 
-
+* `text (default: null)` `null`: generate random string and return callback
+* `noise (default: true)` `false`: no noise
+* `noiseColor (default: options.color)`
 
 ## LICENSE
 
