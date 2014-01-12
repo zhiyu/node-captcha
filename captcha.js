@@ -24,9 +24,10 @@ module.exports = function(config, callback){
 
     if (config.noise) {
         ctx.strokeStyle = config.noiseColor;
+        var noiseHeight = config.height * 2;
         for (var i = 0; i < 2; i++) {
-            ctx.moveTo(20, Math.random() * 150);
-            ctx.bezierCurveTo(80, Math.random() * 150, 160, Math.random() * 150, 230, Math.random() * 150);
+            ctx.moveTo(20, Math.random() * noiseHeight);
+            ctx.bezierCurveTo(80, Math.random() * noiseHeight, 160, Math.random() * noiseHeight, 230, Math.random() * noiseHeight);
             ctx.stroke();
         }
     }
