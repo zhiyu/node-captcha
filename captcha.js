@@ -52,7 +52,7 @@ module.exports = function(config, callback){
         });
 
         stream.on('end', function(){
-            callback(config.text, filename);
+            callback(config.text, config.fileName);
         });
     }
     else if (2 == config.fileMode) {
