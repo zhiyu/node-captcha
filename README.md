@@ -16,10 +16,11 @@ captcha(options,function(text, data){
 });
 ```
 
-##Options
+## Options
 
-* `fileMode (default: 0)` `0`: data url, `1`: path to new png data file, `2`: return raw png data buffer
-* `saveDir (default: '__dirname')` image file path
+* `fileMode (default: 0)` `0`: data url, `1`: save to a new png file, `2`: return raw png data buffer
+* `fileName (default: random)` when `fileMode == 1`, use this as the file name for the captcha
+* `saveDir (default: '__dirname')` when `fileMode == 1`, save the file in this directory
 * `size (default: 4)` the count of generated characters
 * `height (default: 24)` height of image
 * `width (default: height * size)` width of image
@@ -32,7 +33,7 @@ captcha(options,function(text, data){
 
 ## LICENSE
 
-Copyright ©2012 zhiyu zheng all rights reserved.
+Copyright ©2012-2015 zhiyu zheng all rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
