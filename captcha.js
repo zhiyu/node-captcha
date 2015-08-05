@@ -2,6 +2,7 @@ var Canvas = require('canvas');
 
 module.exports = function(config, callback){
     config.fileMode   = config.fileMode || 0;
+    config.fileName   = config.fileName || new Date().getTime() + Math.floor(Math.random()*1000);
     config.size       = config.size || 4;
     config.height     = config.height || 24;
     config.width      = config.width || config.height * config.size;
@@ -33,15 +34,17 @@ module.exports = function(config, callback){
     }
     
     ctx.strokeStyle = config.color;
-    for (i = 0; i < config.text.length; i++) {
+    for (var i = 0; i < config.text.length; i++) {
         ctx.setTransform(Math.random() * 0.5 + 1, Math.random() * 0.5, Math.random() * 0.5, Math.random() * 0.5 + 1, config.height * i + (config.height-fontSize)/2, config.height-(config.height-fontSize)/2);
         ctx.fillText(config.text.charAt(i), 0, 0);
     }
    
     if (1 == config.fileMode) {
         var fs = require('fs');
-        var filename = new Date().getTime() + Math.floor(Math.random()*1000) +'.png';
-        var out = fs.createWriteStream(config.saveDir  +"/"+ filename);
+        if (config.fileName.substr(config.fileName.length -4).toLowerCase() != '.png') {
+            config.fileName = config.fileName + '.png';
+        }  
+        var out = fs.createWriteStream(config.saveDir  +"/"+ config.fileName);
         var stream = canvas.pngStream();
 
         stream.on('data', function(chunk){
@@ -49,7 +52,7 @@ module.exports = function(config, callback){
         });
 
         stream.on('end', function(){
-            callback(config.text, filename);
+            callback(config.text, config.fileName);
         });
     }
     else if (2 == config.fileMode) {
