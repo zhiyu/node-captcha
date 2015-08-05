@@ -3,6 +3,8 @@
 captcha generator for node.
 
 ## Installation
+Make sure you have [installed Cairo](https://github.com/Automattic/node-canvas/wiki/_pages) first, since it is needed to generate the captcha.
+Then run:
 
 	$ npm install node-captcha
 
