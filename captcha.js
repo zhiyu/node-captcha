@@ -34,7 +34,7 @@ module.exports = function(config, callback){
     }
     
     ctx.strokeStyle = config.color;
-    for (i = 0; i < config.text.length; i++) {
+    for (var i = 0; i < config.text.length; i++) {
         ctx.setTransform(Math.random() * 0.5 + 1, Math.random() * 0.5, Math.random() * 0.5, Math.random() * 0.5 + 1, config.height * i + (config.height-fontSize)/2, config.height-(config.height-fontSize)/2);
         ctx.fillText(config.text.charAt(i), 0, 0);
     }
