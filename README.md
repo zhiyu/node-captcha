@@ -29,6 +29,7 @@ captcha(options,function(text, data){
 * `text (default: null)` `null`: generate random string and return callback
 * `noise (default: true)` `false`: no noise
 * `noiseColor (default: options.color)`
+* `complexity (default: 3)`: image complexity, integer between 0 and 6
 
 ## LICENSE
 
