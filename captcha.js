@@ -12,8 +12,10 @@ module.exports = function(config, callback){
     config.text       = config.text || ('' + Math.random()).substr(2, config.size);
     config.noise      = config.noise || true;
     config.noiseColor = config.noiseColor || config.color;
-    
-    var fontSize = Math.round(config.height*0.7);
+    config.complexity = config.complexity || 3;
+    config.complexity = (config.complexity < 1 || config.complexity > 5) ? 3 : config.complexity;
+
+    var fontSize = Math.round(config.height * 0.5 + (15 - config.complexity * 3));
     var canvas = new Canvas(config.width, config.height);
     var ctx = canvas.getContext('2d');
     ctx.fillStyle = config.background;
@@ -24,20 +26,23 @@ module.exports = function(config, callback){
 
     if (config.noise) {
         ctx.strokeStyle = config.noiseColor;
-        var noiseHeight = config.height * 2;
+        var noiseHeight = config.height;
         for (var i = 0; i < 2; i++) {
             ctx.moveTo(20, Math.random() * noiseHeight);
             ctx.bezierCurveTo(80, Math.random() * noiseHeight, 160, Math.random() * noiseHeight, 230, Math.random() * noiseHeight);
             ctx.stroke();
         }
     }
-    
+
+    var modifier = config.complexity / 5;
     ctx.strokeStyle = config.color;
     for (i = 0; i < config.text.length; i++) {
-        ctx.setTransform(Math.random() * 0.5 + 1, Math.random() * 0.5, Math.random() * 0.5, Math.random() * 0.5 + 1, config.height * i + (config.height-fontSize)/2, config.height-(config.height-fontSize)/2);
+        ctx.setTransform(Math.random() * modifier + 1 + modifier/3, Math.random() * modifier + modifier/3,
+                         Math.random() * modifier + modifier/3, Math.random() * modifier + 1 + modifier/3,
+                         (config.height * i)/3 + (config.height-fontSize)/3, config.height-(config.height-fontSize)/2);
         ctx.fillText(config.text.charAt(i), 0, 0);
     }
-   
+
     if (1 == config.fileMode) {
         var fs = require('fs');
         var filename = new Date().getTime() + Math.floor(Math.random()*1000) +'.png';
