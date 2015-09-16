@@ -10,7 +10,7 @@ module.exports = function(config, callback){
     config.lineWidth  = config.lineWidth || 2;
     config.saveDir    = config.saveDir || __dirname;
     config.text       = config.text || ('' + Math.random()).substr(2, config.size);
-    config.noise      = config.noise || true;
+    config.noise      = (config.noise !== false) ? true : false;
     config.noiseColor = config.noiseColor || config.color;
     config.complexity = config.complexity || 3;
     config.complexity = (config.complexity < 1 || config.complexity > 5) ? 3 : config.complexity;
