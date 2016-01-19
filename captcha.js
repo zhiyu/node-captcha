@@ -14,6 +14,8 @@ module.exports = function(config, callback){
     config.noiseColor = config.noiseColor || config.color;
     config.complexity = config.complexity || 3;
     config.complexity = (config.complexity < 1 || config.complexity > 5) ? 3 : config.complexity;
+	config.spacing = config.spacing || 2;
+	config.spacing = (config.spacing < 1 || config.spacing > 3) ? 2 : config.spacing;
 
     var fontSize = Math.round(config.height * 0.5 + (15 - config.complexity * 3));
     var canvas = new Canvas(config.width, config.height);
@@ -39,7 +41,7 @@ module.exports = function(config, callback){
     for (i = 0; i < config.text.length; i++) {
         ctx.setTransform(Math.random() * modifier + 1 + modifier/3, Math.random() * modifier + modifier/3,
                          Math.random() * modifier + modifier/3, Math.random() * modifier + 1 + modifier/3,
-                         (config.height * i)/3 + (config.height-fontSize)/3, config.height-(config.height-fontSize)/2);
+                         (config.height * i)/(4-config.spacing) + (config.height-fontSize)/3 + 10, config.height-(config.height-fontSize)/2);
         ctx.fillText(config.text.charAt(i), 0, 0);
     }
 
