@@ -30,6 +30,7 @@ captcha(options,function(text, data){
 * `noise (default: true)` `false`: no noise
 * `noiseColor (default: options.color)`
 * `complexity (default: 3)`: image complexity, integer between 0 and 6
+* `spacing (default: 2)`: Spacing between characters, integer between 1 and 3
 
 ## LICENSE
 
